@@ -1,2 +1,10 @@
 # PES-Final-Project
-Code for Final Project for PES, ECEN-5813, Fall 2021
+# Plant Health Monitoring System
+
+## Objective of the Assignment <br/>
+
+
+## Implementation
+1)
+
+## Bonus (Extra Implementation
