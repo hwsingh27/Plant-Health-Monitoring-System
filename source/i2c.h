@@ -52,6 +52,8 @@
 #define I2C1_NACK (I2C1->C1 |= I2C_C1_TXAK_MASK)
 //acknowledgment signal is sent to the bus
 #define I2C1_ACK (I2C1->C1 &= ~I2C_C1_TXAK_MASK)
+//check if the transfer of byte and acknowledgment is completed
+#define TRANS_COM while((I2C1->S & I2C_S_TCF_MASK)==0);
 
 /*
  *  Functions for TSL2561 sensor (light sensor)

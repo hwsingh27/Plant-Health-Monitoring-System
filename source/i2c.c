@@ -59,17 +59,17 @@ void Write_Luminosity(uint8_t dev_addr, uint8_t reg_addr, uint8_t data)
 	I2C0_TRAN;
 	I2C0_M_START;
 
-	I2C0->D = dev_addr<<1;
+	I2C0->D = dev_addr<<1; //shifted to left by 1 bit to make the LSB as 0 for writing to the register.
 	ACK_SIGNAL
 	NACK_SIGNAL
 	I2C0_WAIT;
 
-	I2C0->D = reg_addr;
+	I2C0->D = reg_addr; //passing the register address
 	ACK_SIGNAL
 	NACK_SIGNAL
 	I2C0_WAIT;
 
-	I2C0->D = data;
+	I2C0->D = data; //writing data to the register
 	ACK_SIGNAL
 	NACK_SIGNAL
 	I2C0_WAIT;
@@ -90,30 +90,30 @@ uint8_t Read_Luminosity(uint8_t dev_addr,uint8_t reg_addr)
 	I2C0_TRAN;
 	I2C0_M_START;
 
-	I2C0->D = dev_addr << 1;
+	I2C0->D = dev_addr<<1; //shifted to left by 1 bit to make the LSB as 0 for writing to the register.
 	ACK_SIGNAL
 	I2C0_WAIT;
 
-	I2C0->D = reg_addr;
+	I2C0->D = reg_addr; //passing the register address
 	ACK_SIGNAL
 	I2C0_WAIT;
 
 	I2C0_M_RSTART;
 
-	I2C0->D = (dev_addr<<1)|0x01;
+	I2C0->D = (dev_addr<<1)|0x01; //making the LSB as 1 to read from the register
 	ACK_SIGNAL
 	I2C0_WAIT;
 
 	I2C0_REC;
 	I2C0_NACK;
 
-	data = I2C0->D;
+	data = I2C0->D; //reading the dummy value from the register to get the actual value in next read
 	ACK_SIGNAL
 	I2C0_WAIT;
 
 	I2C0_M_STOP;
 
-	data = I2C0->D;
+	data = I2C0->D; //reading the value from the register and storing in the data variable
 
 	return data;
 }
@@ -168,36 +168,36 @@ uint16_t Read_Temp_Hum(uint8_t dev_addr,uint8_t reg_addr)
 	I2C1_TRAN;
 	I2C1_M_START;
 
-	I2C1->D = dev_addr<<1;
-	while((I2C1->S & I2C_S_TCF_MASK)==0);
+	I2C1->D = dev_addr<<1; //shifted to left by 1 bit to make the LSB as 0 for writing to the register.
+	TRANS_COM
 	I2C1_WAIT;
 
-	I2C1->D = reg_addr;
-	while((I2C1->S & I2C_S_TCF_MASK)==0);
+	I2C1->D = reg_addr; //passing the register address
+	TRANS_COM
 	I2C1_WAIT;
 
 	I2C1_M_RSTART;
 
-	I2C1->D = ((dev_addr<<1)|0x01);
-	while((I2C1->S & I2C_S_TCF_MASK)==0);
+	I2C1->D = ((dev_addr<<1)|0x01); //making the LSB as 1 to read from the register
+	TRANS_COM
 	I2C1_WAIT;
 
 	I2C1_REC;
 	I2C1_NACK;
 
-	data[0] = I2C1->D;
-	while((I2C1->S & I2C_S_TCF_MASK)==0);
+	data[0] = I2C1->D; //reading the dummy value from the register to get the actual value in next read
+	TRANS_COM
 	I2C1_WAIT;
 
-	data[0] = I2C1->D;
-	while((I2C1->S & I2C_S_TCF_MASK)==0);
+	data[0] = I2C1->D; //reading the value from the register to make it MSB
+	TRANS_COM
 	I2C1_WAIT;
-	data[1] = I2C1->D;
+	data[1] = I2C1->D; //reading the value from the register to make it LSB
 
 	I2C1_M_STOP;
 
-	result = (data[0]<<8);
-	result += data[1];
+	result = (data[0]<<8); //making it MSB
+	result += data[1]; //adding it to data[1] to get the complete result
 
 	return result;
 }
