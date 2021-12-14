@@ -37,14 +37,14 @@ int main(void)
 
     Init_Pwm(); //initialized the PWM for RGB LED
     I2C1_Init(); //initialized I2C1
-    I2C1_Set_Flags();
+    I2C1_Set_Flags(); //setting the flags for I2C1
 
     I2C0_Init(); //initialized I2C0
-    I2C0_Set_Flags();
+    I2C0_Set_Flags(); //setting the flags for I2C0
     Tsl_Init(); //calling the TSL2561 function for setting the appropriate registers
 
     Test_Cbuff(); //test function for circular buffer
-//    Test_Sensors(); //test function for the testing of hardware (SHT21 and TSL2561 sensors)
+    Test_Sensors(); //test function for the testing of hardware (SHT21 and TSL2561 sensors)
 
     printf("Plant Health Monitoring Systems\n\r\n\r");
 
@@ -54,16 +54,16 @@ int main(void)
     while(1)
     {
     	//getting the value from the temperature (SHT21) sensor
-    	I2C1_Set_Flags();
-    	temperature = Get_Temperature();
+    	I2C1_Set_Flags(); //setting the flags for I2C1
+    	temperature = Get_Temperature(); //reading temperature
 
     	//getting the value from the humidity (SHT21) sensor
-    	I2C1_Set_Flags();
-    	humidity = Get_Humidity();
+    	I2C1_Set_Flags(); //setting the flags for I2C1
+    	humidity = Get_Humidity(); //reading humidity
 
     	//getting the value from the light (TSL2561) sensor
-    	I2C0_Set_Flags();
-    	lux = Get_Lux();
+    	I2C0_Set_Flags(); //setting the flags for I2C0
+    	lux = Get_Lux(); //reading luminosity
 
     	/*
     	 * glowing the RED LED and printing the danger message when the threshold is reached

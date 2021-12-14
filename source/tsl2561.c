@@ -16,6 +16,12 @@
 #define	TSL2561_DATA_1_LOW    (0x0E)
 #define	TSL2561_DATA_1_HIGH   (0x0F)
 
+/**
+ * @function: the function is used to write into various registers to configure the I2C0 for TSL2561 sensor
+ *
+ * @parameter: NULL
+ * @return: NULL
+ */
 void Tsl_Init(void)
 {
 	//setting gain to 0 and time to 2 for 402ms
@@ -26,6 +32,12 @@ void Tsl_Init(void)
 	I2C0_Set_Flags();
 }
 
+/**
+ * @function: the function computes the lux value from the TSL2561 sensor using the datasheet (formula)
+ *
+ * @parameter: NULL
+ * @return: the lux value in floating point
+ */
 float Get_Lux(void)
 {
 	uint8_t data0_low,data0_high,data1_low,data1_high;

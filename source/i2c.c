@@ -1,7 +1,25 @@
-
+/**
+ * @file: i2c.c
+ * @brief: functions to initialize I2C0 and I2C1
+ * and reading and writting to I2C0 and I2C1
+ *
+ * @author: Harshwardhan Singh, harshwardhan.singh@colorado.edu
+ * @date: 13th December 2021
+ * @references/citations:
+ * Embedded Systems Fundamentals with
+ * Arm Cortex-M based Microcontrollers (Textbook)
+ * by Alexander G.Dean, GitHub repo and
+ * KL25Z Reference Manual.
+ */
 
 #include "common.h"
 
+/**
+ * @function: function sets the clock for I2C0 and PORTC
+ *
+ * @parameter: NULL
+ * @return: NULL
+ */
 void I2C0_Init(void)
 {
 	//enabling the clock for I2C0
@@ -10,6 +28,12 @@ void I2C0_Init(void)
 	SIM->SCGC5 |= SIM_SCGC5_PORTC_MASK;
 }
 
+/**
+ * @function: the function sets the flags ICR, MULT and IICEN
+ *
+ * @parameter: NULL
+ * @return: NULL
+ */
 void I2C0_Set_Flags(void)
 {
 	//setting the I2C0 SCL port
@@ -24,6 +48,12 @@ void I2C0_Set_Flags(void)
 	I2C0->C1 = I2C_C1_IICEN_MASK;
 }
 
+/**
+ * @function: function is used to write into the TSL2561 sensor
+ *
+ * @parameter: device address, register address and data
+ * @return: NULL
+ */
 void Write_Luminosity(uint8_t dev_addr, uint8_t reg_addr, uint8_t data)
 {
 	I2C0_TRAN;
@@ -47,6 +77,12 @@ void Write_Luminosity(uint8_t dev_addr, uint8_t reg_addr, uint8_t data)
 	I2C0_M_STOP;
 }
 
+/**
+ * @function: function reads the raw value of lux from the TSL2561 sensor
+ *
+ * @parameter: device address and register address
+ * @return: the raw value of luminosity
+ */
 uint8_t Read_Luminosity(uint8_t dev_addr,uint8_t reg_addr)
 {
 	uint8_t data;
@@ -82,6 +118,12 @@ uint8_t Read_Luminosity(uint8_t dev_addr,uint8_t reg_addr)
 	return data;
 }
 
+/**
+ * @function: function sets the clock for I2C1 and PORTE
+ *
+ * @parameter: NULL
+ * @return: NULL
+ */
 void I2C1_Init(void)
 {
 	//enabling the clock for I2C1
@@ -90,6 +132,12 @@ void I2C1_Init(void)
 	SIM->SCGC5 |= SIM_SCGC5_PORTE_MASK;
 }
 
+/**
+ * @function: the function sets the flags ICR, MULT and IICEN
+ *
+ * @parameter: NULL
+ * @return: NULL
+ */
 void I2C1_Set_Flags(void)
 {
 	//setting the I2C1 SDA port
@@ -106,6 +154,12 @@ void I2C1_Set_Flags(void)
 	I2C1->C2 |= (I2C_C2_HDRS_MASK);
 }
 
+/**
+ * @function: function reads the raw value of temperature and humidity from SHT21 sensor
+ *
+ * @parameter: device address and register address
+ * @return: returns the raw values of temperature and humidity
+ */
 uint16_t Read_Temp_Hum(uint8_t dev_addr,uint8_t reg_addr)
 {
 	uint8_t data[2];

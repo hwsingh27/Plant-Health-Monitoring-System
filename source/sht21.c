@@ -5,6 +5,12 @@
 #define TEMPERATURE (0xE3) //address of the register to get the temperature value
 #define HUMIDITY (0xE5) //address of the register to get the humidity value
 
+/**
+ * @function: the function returns the temperature in degree Celsius using datasheet (formula)
+ *
+ * @parameter: NULL
+ * @return: computed temperature in degree celsius in float
+ */
 float Get_Temperature(void)
 {
 	//getting the data from the SHT21, temperature register
@@ -15,6 +21,12 @@ float Get_Temperature(void)
 	return (-46.85 + 175.72/65536 * (float)raw_data);
 }
 
+/**
+ * @function: the function returns the humidity in percentage using datasheet (formula)
+ *
+ * @parameter: NULL
+ * @return: computed humidity in percentage
+ */
 float Get_Humidity(void)
 {
 	//getting the data from the SHT21, humidity register

@@ -5,7 +5,7 @@
  * Asserts are used to give the failure message at that line.
  *
  * @author: Harshwardhan Singh, harshwardhan.singh@colorado.edu
- * @date: 8th November 2021
+ * @date: 13th December 2021
  * @references/citations: Prof. Howdy Pierce's test suit shared
  * over the Canvas for testing the circular buffer
  */
@@ -218,6 +218,14 @@ void Test_Cbuff(void)
 	printf("%s: Test Cases Passed for Circular Buffer\n\r",__FUNCTION__);
 }
 
+/**
+ * @function: the function tests the readings from the sensors whether they are correct
+ * or not (Arduino UNO is used to get the correct readings from the sensors as it
+ * uses APIs) and these actual values were compared with the KL25Z's
+ *
+ * @parameter: NULL
+ * @return: NULL
+ */
 void Test_Sensors(void)
 {
 	uint32_t temperature,lux,humidity;
