@@ -12,17 +12,16 @@
 #define GAIN_TIME (0x02) //setting the gain as 0 and time as 2 for 402ms
 #define POWER_UP (0x03) //powering up the device i.e. TSL2561
 
-#define TSL2561_ADDR	(0x39)
-#define TSL2561_CMD           (0x80)
-#define TSL2561_CMD_CLEAR     (0xC0)
-#define	TSL2561_CONTROL   (0x00)
-#define	TSL2561_TIMING    (0x01)
-#define	TSL2561_THRESH_LOW  (0x02)
-#define	TSL2561_THRESH_HIGH  (0x04)
-#define	TSL2561_DATA_0_LOW    (0x0C)
-#define	TSL2561_DATA_0_HIGH   (0x0D)
-#define	TSL2561_DATA_1_LOW    (0x0E)
-#define	TSL2561_DATA_1_HIGH   (0x0F)
+#define TSL2561_ADDR	(0x39) //address of the TSL2561
+#define TSL2561_CMD           (0x80) //for setting the MSB
+#define	TSL2561_CONTROL   (0x00) //for controlling the basic functions
+#define	TSL2561_TIMING    (0x01) //integration time/gain control
+#define	TSL2561_THRESH_LOW  (0x02) //low byte of low interrupt threshold
+#define	TSL2561_THRESH_HIGH  (0x04) //low byte of high interrupt threshold
+#define	TSL2561_DATA_0_LOW    (0x0C) //low byte of ADC channel 0
+#define	TSL2561_DATA_0_HIGH   (0x0D) //high byte of ADC channel 0
+#define	TSL2561_DATA_1_LOW    (0x0E) //low byte of ADC channel 1
+#define	TSL2561_DATA_1_HIGH   (0x0F) //high byte of ADC channel 1
 
 /**
  * @function: the function is used to write into various registers to configure the I2C0 for TSL2561 sensor
