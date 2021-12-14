@@ -1,3 +1,14 @@
+/*
+ * sysclock.c - configuration routines for KL25Z system clock
+ *
+ * Author Howdy Pierce, howdy.pierce@colorado.edu
+ *
+ * See section 24 of the KL25Z Reference Manual to understand this code
+ *
+ * Inspired by https://learningmicro.wordpress.com/configuring-device-clock-and-using-systick-system-tick-timer-module-to-generate-software-timings/
+
+ */
+
 #include "common.h"
 
 void sysclock_init()

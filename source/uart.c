@@ -1,3 +1,20 @@
+/**
+ * @file: uart.c
+ * @brief: UART configuration is done in this file along with
+ * the programming of handler, __sys_write() and __sys_read()
+ *
+ * @author: Harshwardhan Singh, harshwardhan.singh@colorado.edu
+ * @date: 13th December 2021
+ *
+ * @references/citations: Embedded Systems Fundamentals with
+ * Arm Cortex-M based Microcontrollers
+ * by Alexander G.Dean, GitHub repo and
+ * KL25Z Reference Manual.
+ * Referred https://community.nxp.com/t5/
+ * LPCXpresso-IDE-FAQs/Using-printf/m-p/474799
+ * for __sys_write() and __sys_read()
+ */
+
 #include "common.h"
 
 #define OVERSAMPLE_RATE (16)

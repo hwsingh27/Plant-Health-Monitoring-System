@@ -1,3 +1,15 @@
+/*
+ * @file: pwm.c
+ *
+ * @author: Harshwardhan Singh
+ * @date: 13th December 2021
+ *
+ * @tools: MCUXpresso IDE and FRDM-KL25Z Development Board
+ * @Credits: Embedded Systems Fundamentals with
+ * Arm Cortex-M based Microcontrollers (Textbook)
+ * by Alexander G.Dean, GitHub repo
+ * and KL25Z Reference Manual.
+ */
 
 #include "common.h"
 

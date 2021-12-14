@@ -1,10 +1,14 @@
-#include "common.h"
-/*
- * buffer.c
+/**
+ * @file: circular_buff.c
+ * @brief: seven functions have been implemented for working with circular buffer
  *
- *  Created on: Dec 10, 2021
- *      Author: hwsin
+ * @author: Harshwardhan Singh, harshwardhan.singh@colorado.edu
+ * @date: 13th December 2021
+ * @references/citations: PES 2nd Assignment and suggestions
+ * by Prof. Howdy Pierce.
  */
+
+#include "common.h"
 
 /**
  * @brief: initialization function that sets front, rear pointers to 0,
