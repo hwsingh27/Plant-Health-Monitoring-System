@@ -1,0 +1,7 @@
+i2c.c:5:6:I2C0_Init	8	static
+i2c.c:13:6:I2C0_Set_Flags	8	static
+i2c.c:28:6:Write_Luminosity	24	static
+i2c.c:51:9:Read_Luminosity	24	static
+i2c.c:86:6:I2C1_Init	8	static
+i2c.c:94:6:I2C1_Set_Flags	8	static
+i2c.c:110:10:Read_Temp_Hum	24	static

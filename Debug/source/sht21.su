@@ -1,0 +1,2 @@
+sht21.c:8:7:Get_Temperature	24	static
+sht21.c:18:7:Get_Humidity	24	static

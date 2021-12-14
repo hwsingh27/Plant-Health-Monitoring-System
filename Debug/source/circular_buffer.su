@@ -1,0 +1,7 @@
+circular_buffer.c:16:6:cbuff_init	24	static
+circular_buffer.c:34:9:ifFull	16	static
+circular_buffer.c:48:9:ifEmpty	16	static
+circular_buffer.c:62:8:cbuff_capacity	16	static
+circular_buffer.c:67:8:cbuff_length	16	static
+circular_buffer.c:81:8:cbuff_enqueue	32	static
+circular_buffer.c:113:8:cbuff_dequeue	32	static

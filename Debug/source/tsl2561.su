@@ -1,0 +1,2 @@
+tsl2561.c:19:6:Tsl_Init	8	static
+tsl2561.c:29:7:Get_Lux	56	static

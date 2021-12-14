@@ -1,0 +1,2 @@
+pwm.c:8:6:Init_Pwm	8	static
+pwm.c:62:6:Set_Color	40	static

@@ -1,0 +1,2 @@
+light.c:14:6:Tsl_Init	8	static
+light.c:22:7:Get_Lux	56	static
