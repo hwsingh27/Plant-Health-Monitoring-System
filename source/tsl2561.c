@@ -1,3 +1,11 @@
+/**
+ * @file: tsl2561.c
+ * @brief: consists of initialization function and computing the lux function
+ *
+ * @author: Harshwardhan Singh, harshwardhan.singh@colorado.edu
+ * @date: 13th December 2021
+ * @references/citations: datasheet of TSL2561
+ */
 
 #include "common.h"
 
